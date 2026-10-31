@@ -6,6 +6,7 @@
 
 > 本扩展是非官方第三方项目，与杭州深度求索人工智能基础技术研究有限公司（DeepSeek）无任何关联。
 > 「DeepSeek」名称与鲸鱼图标归其所有者所有，本项目仅在侧边栏中加载 DeepSeek 官方网页，不修改其内容。
+> 详见 [NOTICE.md](NOTICE.md)；源代码以 [MIT License](LICENSE) 授权（不含官方品牌素材）。
 
 ---
 
@@ -303,6 +304,7 @@ Access is denied for this document.
 | `verify-edge.js` | 真实 Edge 验证 zip（18 项） |
 | `test-no-tabs-perm.js` | 移除 `tabs` 权限后的功能回归（13 项） |
 | `README.md` | 本文档 |
+| `LICENSE` / `NOTICE.md` | MIT 许可证 + 官方商标素材与无关联声明 |
 | `_metadata/` | Chrome 自动生成的 DNR 缓存，**不要**打包，已在 `.gitignore` 中忽略 |
 
 ---
