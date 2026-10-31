@@ -1,0 +1,27 @@
+# Chrome/Edge 加载扩展后自动生成的 DNR 规则缓存，不要提交
+_metadata/
+
+# 依赖与日志
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 打包中间产物（dist/ 里的 zip 是要发布的，保留）
+*.zip.tmp
+
+# 扩展打包私钥 / 签名产物（.pem 是私钥，绝不能提交）
+*.pem
+*.crx
+*.crx.key
+
+# 本地环境
+.env
+.env.*

@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "DeepSeek 侧边栏",
+  "version": "2.4.0",
+  "description": "在浏览器侧边栏中打开 DeepSeek 网页端，仅在当前标签页显示。",
+  "minimum_chrome_version": "116",
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "permissions": [
+    "sidePanel",
+    "declarativeNetRequest"
+  ],
+
+  "host_permissions": [
+    "https://chat.deepseek.com/*"
+  ],
+
+  "action": {
+    "default_title": "在当前标签页打开 DeepSeek 侧边栏",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "deepseek_frame_rules",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  }
+}

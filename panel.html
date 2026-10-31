@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeepSeek</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    #frame {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      background: #fff;
+    }
+
+    /* 加载态 */
+    #loading {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      transition: opacity .25s ease;
+      pointer-events: none;
+    }
+    #loading.hide { opacity: 0; }
+
+    .spinner {
+      width: 22px;
+      height: 22px;
+      border: 2px solid #e5e5e7;
+      border-top-color: #4d6bfe;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* 错误提示 */
+    #error {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 24px 20px;
+      background: #fff;
+      text-align: center;
+      font: 13px/1.7 system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: #666;
+    }
+    #error.show { display: flex; }
+    #error h2 { font-size: 14px; color: #111; font-weight: 500; }
+    #error p { max-width: 280px; }
+    #error button {
+      padding: 8px 20px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      background: #fff;
+      font: inherit;
+      cursor: pointer;
+      color: #222;
+    }
+    #error button:hover { background: #f5f5f6; }
+  </style>
+</head>
+<body>
+
+  <iframe
+    id="frame"
+    src="https://chat.deepseek.com/"
+    allow="clipboard-read; clipboard-write"
+    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  <div id="loading"><div class="spinner"></div></div>
+
+  <div id="error">
+    <h2>无法加载 DeepSeek</h2>
+    <p id="error-msg">请检查网络连接后重试。</p>
+    <button id="retry">重试</button>
+  </div>
+
+  <script src="panel.js"></script>
+</body>
+</html>
