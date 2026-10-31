@@ -85,16 +85,16 @@ SHA256：`97670B06E899E3F9095A8AA5BD627F7E1D7F522F56C54638042643F82BE9F632`
 
 ## 验证状态
 
-### 在真实 Microsoft Edge 155 中
+### 在真实 Microsoft Edge 中
 
 ```
-Edge 验证结果：18/18 通过
+Edge 验证结果：18/18 通过（Edge 155 / 156 均已验证）
 ```
 
 关键结果：
 
 ```
-Edge: Edg/155.0.4283.62
+Edge: Edg/156.0.4314.50
 扩展加载成功 → aophdfefbnmpciohbaipnhacmlphcfle
 Edge 支持 sidePanel API        ✅
 Edge 支持 sidePanel.open       ✅
@@ -110,15 +110,17 @@ Edge 中 React 已挂载            ✅
 验证方式不是「看一眼能跑」，而是：**解压 zip → 用 `msedge.exe` 加载 → 检查
 Service Worker、API 可用性、iframe 真实渲染**。
 
-### 在 Chrome 155 中
+### 在 Chrome 中
 
 ```
+Chrome: 156.0.8078.74
 verify.js              27/27 通过
 verify-tab-scope.js    19/19 通过
-verify-click.js        18/18 通过
+verify-click.js        19/19 通过
 verify-open-state.js    5/5 通过
+test-no-tabs-perm.js   13/13 通过
 ─────────────────────────────────
-                       69/69 通过
+                       83/83 通过
 ```
 
 自测命令：
@@ -131,6 +133,7 @@ node verify.js            # Chrome 基础功能
 node verify-tab-scope.js  # 标签页隔离
 node verify-click.js      # 点击打开
 node verify-open-state.js # 预配置≠显示
+node test-no-tabs-perm.js # 无 tabs 权限回归
 ```
 
 浏览器不在默认安装位置时，用环境变量指定可执行文件路径：
@@ -299,7 +302,7 @@ Access is denied for this document.
 | `official-icons/` | DeepSeek 官方图标原始资源 |
 | `verify.js` | Chrome 基础功能验证（27 项） |
 | `verify-tab-scope.js` | 标签页隔离验证（19 项） |
-| `verify-click.js` | 点击打开验证（18 项，另有 1 项需真实用户激活才能跑） |
+| `verify-click.js` | 点击打开验证（19 项） |
 | `verify-open-state.js` | 预配置≠显示（5 项） |
 | `verify-edge.js` | 真实 Edge 验证 zip（18 项） |
 | `test-no-tabs-perm.js` | 移除 `tabs` 权限后的功能回归（13 项） |
